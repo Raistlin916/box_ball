@@ -5,16 +5,16 @@
     <title>盒子里的球</title>
 </head>
 <body>
-    盒子数量：<input type="text" id="input">
+    盒子数量：<input type="text" id="input"><br>
+    盒子里的球：<input type="text" id="ball-input" value="ABCD"><br>
     <button type="button" id="btn">print</button>
     <div id="out"></div>
 
 
     <script>
         "use strict";
-        function printBall(l){
-           var arr = 'ABCD'
-           , n
+        function printBall(arr, l){
+           var n
            , temp
            , res, resArr = []
            , max = Math.pow(arr.length, l);
@@ -29,10 +29,11 @@
 
         var outElem = document.getElementById('out')
         , inputElem = document.getElementById('input')
-        , btnElem = document.getElementById('btn');
-        btnElem.onclick = function(){
-            var arr = printBall(inputElem.value);
+        , btnElem = document.getElementById('btn')
+        , ballInputElem = document.getElementById('ball-input');
 
+        btnElem.onclick = function(){
+            var arr = printBall(ballInputElem.value, inputElem.value);
             outElem.innerHTML = arr.join('<br>');
         };
     </script>
